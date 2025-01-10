@@ -1,0 +1,48 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "AddEmployee";
+}
+
+<h1>Add Employee</h1>
+<br>
+@*EmployeeId, Name, Phone, HDate *@
+<form asp-action="AddEmployee" method="post" class="form-control">
+	<table class="table table-responsive">
+		<tr>
+			<td class="fw-bold"><label asp-for="Name"></label></td>
+			<td><input asp-for="Name" class="form-control" /></td>
+		</tr>
+		<tr>
+			<td class="fw-bold"><label asp-for="Email"></label></td>
+			<td><input asp-for="Email" class="form-control" /></td>
+		</tr>
+		<tr>
+			<td class="fw-bold"><label asp-for="Phone"></label></td>
+			<td><input asp-for="Phone" class="form-control" /></td>
+		</tr>
+		<tr>
+			<td class="fw-bold"><label asp-for="HDate"></label></td>
+			<td><input asp-for="HDate" class="form-control text-center" /></td>
+		</tr>
+		@*<td colspan= "2">*@
+
+		<tr>
+			<td class="fw-bold"><label asp-for="IsActive"></label></td>
+			<td>
+				<div class="form-check form-switch">
+					<input asp-for="IsActive" class="form-check-input btn-lg" type="checkbox" id="flexSwitchCheckDefault" checked>
+					<label class="form-check-label" for="flexSwitchCheckDefault">Active</label>
+					<br />
+					<input asp-for="IsDeleted" class="form-check-input btn-lg" type="checkbox" id="flexSwitchCheckDefault" checked>
+					<label class="form-check-label" for="flexSwitchCheckDefault">Deleted</label>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="text-end">
+		<a asp-action="Index" asp-controller="Employees" class="btn btn-secondary btn-lg">Cancel</a>
+		<td>
+			<input type="submit" value="Save" class="btn btn-primary btn-lg" />
+		</td>
+	</div>
+</form>

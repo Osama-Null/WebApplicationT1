@@ -1,0 +1,54 @@
+﻿@model Employee
+@{
+	ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<br>
+<table class="table table-responsive-md">
+	<tr>
+		<td class="fw-bold">@Html.DisplayNameFor(Model => Model.EmployeeId)</td>
+		<td>@Model.EmployeeId</td>
+	</tr>
+	<tr>
+		<td class="fw-bold">@Html.DisplayNameFor(Model => Model.Name)</td>
+		<td>@Model.Name</td>
+	</tr>
+	<tr>
+		<td class="fw-bold">@Html.DisplayNameFor(Model => Model.Email)</td>
+		<td>@Model.Email</td>
+	</tr>
+	<tr>
+		<td class="fw-bold">@Html.DisplayNameFor(Model => Model.Phone)</td>
+		<td>@Model.Phone</td>
+	</tr>
+	<tr>
+		<td class="fw-bold">@Html.DisplayNameFor(Model => Model.HDate)</td>
+		<td>@Model.HDate</td>
+	</tr>
+	<tr>
+		<th class="fw-bold">@Html.DisplayNameFor(Model => Model.IsActive)</th>
+		<td>
+			@if (Model.IsActive)
+			{
+				<span class="badge text-success">Active</span>
+			}
+			else
+			{
+				<span class="badge text-danger">Non-Active</span>
+			}
+			<br>
+			@if (Model.IsDeleted)
+			{
+				<span class="badge text-success">Deleted</span>
+			}
+			else
+			{
+				<span class="badge text-danger">Not-Deleted</span>
+			}
+		</td>
+	</tr>
+</table>
+<div class="text-end">
+	<a asp-action="Index" asp-controller="Employees" class="btn btn-secondary">Back</a>
+</div>

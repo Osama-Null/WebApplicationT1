@@ -1,0 +1,46 @@
+﻿@model Employee
+@{
+	ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<br>
+<form asp-action="Edit" method="post">
+	@*    Hide and not show to usr*@
+	@Html.HiddenFor(x => x.EmployeeId) <! -- To pass the id so that it know which to edit -->
+	<table class="table">
+		<tr>
+			<td class="fw-bold"><label asp-for="Name"></label></td>
+			<td><input asp-for="Name" class="form-control" /></td>
+		</tr>
+		<tr>
+			<td class="fw-bold"><label asp-for="Email"></label></td>
+			<td><input asp-for="Email" class="form-control" /></td>
+		</tr>
+		<tr>
+			<td class="fw-bold"><label asp-for="Phone"></label></td>
+			<td><input asp-for="Phone" class="form-control" /></td>
+		</tr>
+		<tr>
+			<td class="fw-bold"><label asp-for="HDate"></label></td>
+			<td><input asp-for="HDate" class="form-control text-center" /></td>
+		</tr>
+		<tr>
+			<td class="fw-bold"><label asp-for="IsActive"></label></td>
+			<td>
+				<div class="form-check form-switch">
+					<input asp-for="IsActive" class="form-check-input btn-lg" type="checkbox" id="flexSwitchCheckDefault" checked>
+					<label class="form-check-label" for="flexSwitchCheckDefault">Active</label>
+					<br />
+					<input asp-for="IsDeleted" class="form-check-input btn-lg" type="checkbox" id="flexSwitchCheckDefault" checked>
+					<label class="form-check-label" for="flexSwitchCheckDefault">Deleted</label>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="text-end">
+		<input type="submit" value="Save" class="btn btn-success" />
+		<input asp-action="Index" asp-controller="Employees" type="submit" value="Cancel" class="btn btn-secondary text-center" />
+	</div>
+</form>
+

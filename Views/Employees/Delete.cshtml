@@ -1,0 +1,26 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="text-center">Delete</h1>
+<br>
+<form asp-action="Delete" asp-controller="Employees" method="post">
+    @Html.HiddenFor(x => x.EmployeeId)
+    <div tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmation</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete?</p>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    <a asp-action="Index" asp-controller="Employees" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
